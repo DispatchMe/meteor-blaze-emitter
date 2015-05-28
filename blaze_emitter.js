@@ -18,6 +18,12 @@ Blaze.Template.prototype.on = function (event) {
         self._emitter.emit(event);
       });
     });
+
+    self._callbacks['destroyed'].push(function () {
+      // Destroy the emitter
+      self._emitter.removeAllListeners();
+      self._emitter = null;
+    });
   }
 
   self._emitter.on.apply(this._emitter, arguments);
