@@ -5,12 +5,14 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
+  api.versionsFrom('1.0');
+
   api.use([
     // core
     'blaze',
 
     // atmosphere
-    'raix:eventemitter'
+    'raix:eventemitter@0.1.2'
   ], 'web');
 
   api.addFiles('blaze_emitter.js', 'web');
