@@ -1,7 +1,7 @@
 Package.describe({
   name: 'dispatch:blaze-emitter',
   summary: 'Emit template events',
-  version: '0.0.1'
+  version: '0.0.2'
 });
 
 Package.onUse(function (api) {
