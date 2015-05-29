@@ -1,7 +1,5 @@
-Date Tools [![Build Status](https://travis-ci.org/DispatchMe/meteor-blaze-emitter.svg?branch=master)](https://travis-ci.org/DispatchMe/meteor-blaze-emitter)
+Blaze Emitter [![Build Status](https://travis-ci.org/DispatchMe/meteor-blaze-emitter.svg?branch=master)](https://travis-ci.org/DispatchMe/meteor-blaze-emitter)
 =============
-
-
 
 ##Usage
 
