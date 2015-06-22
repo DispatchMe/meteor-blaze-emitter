@@ -35,6 +35,18 @@ Blaze.View.prototype.emit = function () {
   self._emitter.emit.apply(self._emitter, arguments);
 };
 
+// Setup event helpers on template instances
+
+Blaze.TemplateInstance.prototype.on = function () {
+  var view = this.view;
+  return view.on.apply(view, arguments);
+};
+
+Blaze.TemplateInstance.prototype.emit = function () {
+  var view = this.view;
+  return view.emit.apply(view, arguments);
+};
+
 // Setup a global listener for templates
 
 Blaze.Template.prototype.on = function (eventName, listener) {

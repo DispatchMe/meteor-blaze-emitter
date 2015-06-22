@@ -27,6 +27,19 @@ Tinytest.addAsync('View emits events', function (test, done) {
   Blaze.render(helloView, div);
 });
 
+Tinytest.addAsync('Template instance emits events', function (test, done) {
+  var view = Template.hello.constructView();
+
+  var instance = view.templateInstance();
+
+  instance.on('testEvent', function (param1) {
+    test.equal(param1, 'works');
+    done();
+  });
+
+  instance.emit('testEvent', 'works');
+});
+
 Tinytest.addAsync('Template emits events', function (test, done) {
   var invoked = {};
 
