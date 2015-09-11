@@ -1,6 +1,5 @@
 // Setup event emitter for views
-
-Blaze.View.prototype.on = function (event) {
+Blaze.View.prototype.on = function () {
   var self = this;
 
   if (!self._emitter) {
@@ -44,14 +43,23 @@ Blaze.View.prototype.off = function () {
 };
 
 // Setup event helpers on template instances
-
 Blaze.TemplateInstance.prototype.on = function () {
   var view = this.view;
   return view.on.apply(view, arguments);
 };
 
-Blaze.TemplateInstance.prototype.emit = function () {
+Blaze.TemplateInstance.prototype.emit = function (name) {
   var view = this.view;
+
+  // If the view has been attached emit a jQuery event
+  if (view._isAttached) {
+    var el = view.firstNode();
+    if (!el) throw new Error('Blaze.emit: Cannot emit event "' + name + '" without an element');
+
+    var args = _.toArray(arguments).slice(1);
+    $(el).trigger(name, args);
+  }
+
   return view.emit.apply(view, arguments);
 };
 
@@ -61,7 +69,6 @@ Blaze.TemplateInstance.prototype.off = function () {
 };
 
 // Setup a global listener for templates
-
 Blaze.Template.prototype.on = function (eventName, listener) {
   // When the view is created -- attach the listener
   this._callbacks.created.push(function () {
