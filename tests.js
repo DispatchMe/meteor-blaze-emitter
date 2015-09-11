@@ -40,6 +40,21 @@ Tinytest.addAsync('Template instance emits events', function (test, done) {
   instance.emit('testEvent', 'works');
 });
 
+Tinytest.addAsync('Template instance emits jQuery events', function (test, done) {
+  Template.hello.events({
+    'testEvent': function (event, template, param1) {
+      test.equal(param1, 'works');
+      done();
+    }
+  });
+
+  var view = Template.hello.constructView().attach($('body')[0]);
+
+  var instance = view.templateInstance();
+
+  instance.emit('testEvent', 'works');
+});
+
 Tinytest.addAsync('Template emits events', function (test, done) {
   var invoked = {};
 

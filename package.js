@@ -24,7 +24,8 @@ Package.onTest(function (api) {
     'templating',
     'test-helpers',
     'tinytest',
-    'dispatch:blaze-emitter'
+    'dispatch:blaze-emitter',
+    'dispatch:view-extensions'
   ], 'web');
 
   api.addFiles([
