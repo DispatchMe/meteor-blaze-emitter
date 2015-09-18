@@ -53,12 +53,17 @@ Blaze.TemplateInstance.prototype.emit = function (name) {
 
   // If the view has been attached emit a jQuery event
   if (view._isAttached) {
-    var el = view.firstNode();
+    var getElementFromNode = function (node) {
+      if (!node) return null;
 
-    // The node is not an element node and cannot have an event triggered on it.
-    // Attempt to get the parent element node.
-    if (el && el.nodeType !== 1) el = el.parentElement;
+      // If the node is an element node, return it.
+      // Otherwise the node cannot have an event triggered on it
+      // and we must attempt to get the next element node.
+      return (node.nodeType === 1) ? node : getElementFromNode(node.nextSiblingElement);
+    };
 
+    var node = view.firstNode();
+    var el = getElementFromNode(node) || node.parentElement;
     if (!el) throw new Error('Blaze.emit: Cannot emit event "' + name + '" without an element');
 
     var args = _.toArray(arguments).slice(1);
