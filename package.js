@@ -1,7 +1,7 @@
 Package.describe({
   name: 'dispatch:blaze-emitter',
   summary: 'Emit template events',
-  version: '0.0.6',
+  version: '0.0.7',
   git: 'https://github.com/DispatchMe/meteor-blaze-emitter'
 });
 
