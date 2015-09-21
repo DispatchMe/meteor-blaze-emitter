@@ -1,0 +1,33 @@
+{
+	"predef": [
+		"App",
+		"Assets",
+		"Blaze",
+		"Cordova",
+		"DomUtils",
+		"EventEmitter",
+		"HTML",
+		"Handlebars",
+		"Meteor",
+		"Npm",
+		"Package",
+		"SeededRandom",
+		"Template",
+		"Tinytest",
+		"UI",
+		"blurElement",
+		"canonicalizeHtml",
+		"clickElement",
+		"focusElement",
+		"getStyleProperty",
+		"makeTestConnection",
+		"pollUntil",
+		"renderToDiv",
+		"simplePoll",
+		"simulateEvent",
+		"testAsyncMulti",
+		"try_all_permutations",
+		"withCallbackLogger"
+	],
+	"globals": {}
+}

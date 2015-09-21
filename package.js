@@ -1,7 +1,7 @@
 Package.describe({
   name: 'dispatch:blaze-emitter',
   summary: 'Emit template events',
-  version: '0.0.8',
+  version: '0.0.9',
   git: 'https://github.com/DispatchMe/meteor-blaze-emitter'
 });
 
@@ -11,9 +11,11 @@ Package.onUse(function (api) {
   api.use([
     // core
     'blaze',
+    'jquery',
+    'underscore',
 
     // atmosphere
-    'raix:eventemitter@0.1.2'
+    'raix:eventemitter@0.1.3'
   ], 'web');
 
   api.addFiles('blaze_emitter.js', 'web');
